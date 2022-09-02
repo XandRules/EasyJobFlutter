@@ -1,13 +1,36 @@
 import 'package:flutter/material.dart';
 
-class CustomFormField extends StatelessWidget {
+class CustomFormField extends StatefulWidget {
 
   final IconData icon;
   final String label;
-  final bool isObscure;
   final TextInputType type;
+  final bool isSecret ;
 
-  const CustomFormField({Key? key , required this.icon, required this.label,  this.isObscure = false , this.type = TextInputType.text}) : super(key: key);
+
+  const CustomFormField(
+      {Key? key ,
+        required this.icon,
+        required this.label,
+        this.isSecret = false ,
+        this.type = TextInputType.text
+      }) : super(key: key);
+
+  @override
+  State<CustomFormField> createState() => _CustomFormFieldState();
+}
+
+class _CustomFormFieldState extends State<CustomFormField> {
+
+  bool isObscure = false;
+  IconData iconVisibility = Icons.visibility;
+
+  @override
+  void initState() {
+    isObscure = widget.isSecret;
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +40,24 @@ class CustomFormField extends StatelessWidget {
       ),
       child: TextFormField(
         obscureText: isObscure,
-        keyboardType: type,
+        keyboardType: widget.type,
         decoration: InputDecoration(
-          prefixIcon: Icon(icon),
+          prefixIcon: Icon(widget.icon),
+          suffixIcon: widget.isSecret ? IconButton(
+              icon:  Icon(iconVisibility),
+              onPressed: () {
+               setState(() {
+                 isObscure = !isObscure;
+                 iconVisibility = !isObscure ? Icons.visibility_off : Icons.visibility;
+               });
+
+              })
+          : null,
           isDense: true,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(18)
           ),
-          labelText: label
+          labelText: widget.label
         ),
       ),
     );
