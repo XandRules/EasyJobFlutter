@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/components/custom_form_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -15,12 +16,30 @@ class SignInScreen extends StatelessWidget {
             ),
          ),
          Expanded(
-           child: Container( 
+           child: Container(
+             padding: const EdgeInsets.symmetric(
+               horizontal: 32,
+               vertical: 40
+             ),
              decoration: const BoxDecoration(
                color: Colors.white,
                borderRadius: BorderRadius.vertical(
                  top: Radius.circular(45)
                )
+             ),
+             child: Column(
+               children: const [
+                 CustomFormField(
+                   icon: Icons.email,
+                   label: 'E-mail',
+                   type: TextInputType.emailAddress,
+                 ),
+                 CustomFormField(
+                   icon: Icons.lock,
+                   label: 'Senha',
+                   isObscure: true,
+                 ),
+               ],
              ),
            ),
          ),
