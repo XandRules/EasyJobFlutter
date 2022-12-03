@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomFormField extends StatefulWidget {
 
@@ -6,6 +7,7 @@ class CustomFormField extends StatefulWidget {
   final String label;
   final TextInputType type;
   final bool isSecret ;
+  final List<TextInputFormatter> ? inputFormatters;
 
 
   const CustomFormField(
@@ -13,7 +15,8 @@ class CustomFormField extends StatefulWidget {
         required this.icon,
         required this.label,
         this.isSecret = false ,
-        this.type = TextInputType.text
+        this.type = TextInputType.text,
+        this.inputFormatters,
       }) : super(key: key);
 
   @override
@@ -41,6 +44,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
       child: TextFormField(
         obscureText: isObscure,
         keyboardType: widget.type,
+        inputFormatters: widget.inputFormatters,
         decoration: InputDecoration(
           prefixIcon: Icon(widget.icon),
           suffixIcon: widget.isSecret ? IconButton(

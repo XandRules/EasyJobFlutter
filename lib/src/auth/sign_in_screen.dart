@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:greengrocer/src/auth/sign_up_screen.dart';
 import 'package:greengrocer/src/components/custom_form_field.dart';
 
+import '../base/base_screen.dart';
 import '../config/custom_colors.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -26,11 +27,11 @@ class SignInScreen extends StatelessWidget {
                   Text.rich(
                     TextSpan(style: const TextStyle(fontSize: 40), children: [
                       const TextSpan(
-                          text: 'Green',
+                          text: 'Easy',
                           style: TextStyle(
                               color: Colors.white, fontWeight: FontWeight.bold)),
                       TextSpan(
-                          text: 'grocer',
+                          text: 'Job',
                           style: TextStyle(
                             color: CustomColors.customContrastColor,
                           ))
@@ -44,11 +45,11 @@ class SignInScreen extends StatelessWidget {
                           repeatForever: true,
                           pause: Duration.zero,
                           animatedTexts: [
-                            FadeAnimatedText('Frutas'),
-                            FadeAnimatedText('Verduras'),
-                            FadeAnimatedText('Legumes'),
-                            FadeAnimatedText('Carnes'),
-                            FadeAnimatedText('Cereais'),
+                            FadeAnimatedText('Motoboy'),
+                            FadeAnimatedText('Cozinheiro(a)'),
+                            FadeAnimatedText('Segurança'),
+                            FadeAnimatedText('Músicos'),
+
                           ]),
                     ),
                   ),
@@ -82,7 +83,11 @@ class SignInScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(c) {
+                            return const BaseScreen();
+                          }));
+                        },
                         child: const Text(
                           'Entrar',
                           style: TextStyle(fontSize: 18),
@@ -132,11 +137,11 @@ class SignInScreen extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18)),
-                            side: const BorderSide(width: 2, color: Colors.green)),
+                            side: const BorderSide(width: 2, color: Colors.blue)),
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (c) {
-                              return const SignUpScreen();
+                              return SignUpScreen();
                             }),
                           );
                         },
