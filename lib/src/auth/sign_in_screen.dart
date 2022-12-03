@@ -85,7 +85,7 @@ class SignInScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(18))),
                         onPressed: () {
                           Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(c) {
-                            return const BaseScreen();
+                            return BaseScreen();
                           }));
                         },
                         child: const Text(

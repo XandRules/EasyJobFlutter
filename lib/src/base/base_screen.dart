@@ -1,14 +1,40 @@
 import 'package:flutter/material.dart';
 
-class BaseScreen extends StatelessWidget {
-  const BaseScreen({Key? key}) : super(key: key);
+class BaseScreen extends StatefulWidget {
+  BaseScreen({Key? key}) : super(key: key);
+
+  @override
+  State<BaseScreen> createState() => _BaseScreenState();
+}
+
+class _BaseScreenState extends State<BaseScreen> {
+  int currentIndex = 0;
+  final pageController = PageController(
+    initialPage: 0
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(color: Colors.blue,),
+      body: PageView(
+        controller: pageController,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          Container(color: Colors.white,),
+          Container(color: Colors.blue,),
+          Container(color: Colors.green,),
+          Container(color: Colors.red,),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+          currentIndex = index;
+          pageController.jumpToPage(index);
+          });
+        },
         unselectedItemColor: Colors.blue.withAlpha(100),
         items: const [
           BottomNavigationBarItem(
