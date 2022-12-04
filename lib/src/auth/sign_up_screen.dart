@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/components/custom_form_field_dropdown.dart';
 import 'package:greengrocer/src/components/custom_form_field.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -53,6 +54,7 @@ class SignUpScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
+                        const CustomFormFieldDropdown(),
                         const CustomFormField(
                             icon: Icons.abc, label: 'Nome Completo'),
                         const CustomFormField(

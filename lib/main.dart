@@ -14,9 +14,10 @@ class MyApp extends StatelessWidget {
       title: 'EasyJob',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      home: const SignInScreen()
     );
   }
 }
