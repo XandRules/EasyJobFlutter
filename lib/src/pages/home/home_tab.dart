@@ -1,28 +1,19 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/home/components/category_tile.dart';
 
-import '../config/custom_colors.dart';
+import '../../config/custom_colors.dart';
+import 'components/category_tile.dart';
+import 'package:greengrocer/src/config/app_data.dart' as app_data;
+
 
 class HomeTab extends StatefulWidget {
-  HomeTab({Key? key}) : super(key: key);
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categorias = [
-    'Motoboy',
-    'Cozinheiro(a)',
-    'Segurança',
-    'Músicos',
-    'Músicos',
-    'Músicos',
-    'Músicos',
-    'Músicos',
-    'Músicos',
-  ];
 
   String categoriaSelecionada = 'Motoboy';
 
@@ -98,18 +89,18 @@ class _HomeTabState extends State<HomeTab> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (_, index) {
                   return CategoryTile(
-                    categoria: categorias[index],
-                    selecionado: categorias[index] == categoriaSelecionada,
+                    categoria: app_data.categorias[index],
+                    selecionado: app_data.categorias[index] == categoriaSelecionada,
                     onPressed: () {
                       setState(
-                          () => {categoriaSelecionada = categorias[index]});
+                          () => {categoriaSelecionada = app_data.categorias[index]});
                     },
                   );
                 },
                 separatorBuilder: (_, index) => const SizedBox(
                       width: 10,
                     ),
-                itemCount: categorias.length),
+                itemCount: app_data.categorias.length),
           )
           // Grid
         ],

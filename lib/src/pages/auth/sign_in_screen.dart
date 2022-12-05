@@ -1,10 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/auth/sign_up_screen.dart';
-import 'package:greengrocer/src/components/custom_form_field.dart';
+import 'package:greengrocer/src/pages/auth/sign_up_screen.dart';
 
+import '../../config/custom_colors.dart';
 import '../base/base_screen.dart';
-import '../config/custom_colors.dart';
+import '../components/custom_form_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);
@@ -29,7 +29,8 @@ class SignInScreen extends StatelessWidget {
                       const TextSpan(
                           text: 'Easy',
                           style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold)),
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold)),
                       TextSpan(
                           text: 'Job',
                           style: TextStyle(
@@ -49,7 +50,6 @@ class SignInScreen extends StatelessWidget {
                             FadeAnimatedText('Cozinheiro(a)'),
                             FadeAnimatedText('Segurança'),
                             FadeAnimatedText('Músicos'),
-
                           ]),
                     ),
                   ),
@@ -57,10 +57,12 @@ class SignInScreen extends StatelessWidget {
               )),
               // Formulario
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 32, vertical: 40),
                 decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(45))),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(45))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -84,7 +86,8 @@ class SignInScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18))),
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(c) {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(builder: (c) {
                             return BaseScreen();
                           }));
                         },
@@ -137,7 +140,8 @@ class SignInScreen extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18)),
-                            side: const BorderSide(width: 2, color: Colors.blue)),
+                            side:
+                                const BorderSide(width: 2, color: Colors.blue)),
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (c) {

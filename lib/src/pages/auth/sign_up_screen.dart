@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:greengrocer/src/components/custom_form_field_dropdown.dart';
-import 'package:greengrocer/src/components/custom_form_field.dart';
 import 'package:greengrocer/src/config/custom_colors.dart';
+import 'package:greengrocer/src/pages/components/custom_form_field.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+
+import '../components/custom_form_field_dropdown.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({Key? key}) : super(key: key);
