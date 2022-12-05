@@ -1,7 +1,9 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/pages/home/components/item_tile.dart';
 
 import '../../config/custom_colors.dart';
+import '../../models/item_model.dart';
 import 'components/category_tile.dart';
 import 'package:greengrocer/src/config/app_data.dart' as app_data;
 
@@ -16,6 +18,7 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
 
   String categoriaSelecionada = 'Motoboy';
+  List<ItemModel> items = app_data.motoboy;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class _HomeTabState extends State<HomeTab> {
           const TextSpan(
               text: 'Easy',
               style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
           TextSpan(
               text: 'Job',
               style: TextStyle(
@@ -78,7 +81,7 @@ class _HomeTabState extends State<HomeTab> {
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide:
-                          const BorderSide(width: 0, style: BorderStyle.none))),
+                      const BorderSide(width: 0, style: BorderStyle.none))),
             ),
           ),
           // Categorias
@@ -90,19 +93,52 @@ class _HomeTabState extends State<HomeTab> {
                 itemBuilder: (_, index) {
                   return CategoryTile(
                     categoria: app_data.categorias[index],
-                    selecionado: app_data.categorias[index] == categoriaSelecionada,
+                    selecionado: app_data.categorias[index] ==
+                        categoriaSelecionada,
                     onPressed: () {
                       setState(
-                          () => {categoriaSelecionada = app_data.categorias[index]});
+                              () =>
+                          {
+                            categoriaSelecionada = app_data.categorias[index],
+                            if(categoriaSelecionada == 'Motoboy'){
+                              items = app_data.motoboy
+                            },
+                            if(categoriaSelecionada == 'Cozinheiro(a)'){
+                              items = app_data.cozinheiro
+                            },
+                            if(categoriaSelecionada == 'Garçom'){
+                              items = app_data.garcom
+                            },
+                            if(categoriaSelecionada == 'Músicos'){
+                              items = app_data.musico
+                            },
+
+                          });
                     },
                   );
                 },
-                separatorBuilder: (_, index) => const SizedBox(
-                      width: 10,
-                    ),
+                separatorBuilder: (_, index) =>
+                const SizedBox(
+                  width: 10,
+                ),
                 itemCount: app_data.categorias.length),
-          )
+          ),
           // Grid
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              physics: const BouncingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 9 / 11.5
+              ),
+              itemCount: items.length,
+              itemBuilder: (_, index) {
+                return ItemTile(item: items[index],);
+              },),
+          ),
         ],
       ),
     );
