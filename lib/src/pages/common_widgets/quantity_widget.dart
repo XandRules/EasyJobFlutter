@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class QuantityWidget extends StatelessWidget {
-  const QuantityWidget({super.key});
+
+  final int value;
+  final String suffixText;
+  final Function(int quantity) result;
+
+   const QuantityWidget({super.key, required this.value, required this.suffixText, required this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +28,31 @@ class QuantityWidget extends StatelessWidget {
           _Quantity_Button(
             color: Colors.grey,
             icon: Icons.remove,
-            onPressed: () {},
+            onPressed: () {
+              if(value == 1 ) return ;
+              int resultCount = value - 1;
+
+              result(resultCount);
+            },
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
             child: Text(
-              '1 Hora',
-              style: TextStyle(
+              '$value$suffixText',
+              style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           _Quantity_Button(
-            color: Colors.grey,
-            icon: Icons.remove,
-            onPressed: () {},
+            color: Colors.green,
+            icon: Icons.add,
+            onPressed: () {
+              int resultCount = value + 1;
+
+              result(resultCount);
+            },
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/pages/notificacao/notificacao_tab.dart';
 
 import '../home/home_tab.dart';
 
@@ -23,7 +24,7 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           const HomeTab(),
-          Container(color: Colors.blue,),
+          const NotificacaoTab(),
           Container(color: Colors.green,),
           Container(color: Colors.red,),
         ],
@@ -45,7 +46,7 @@ class _BaseScreenState extends State<BaseScreen> {
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.dashboard_outlined),
-              label: 'Relatórios'
+              label: 'Notificações'
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.list),

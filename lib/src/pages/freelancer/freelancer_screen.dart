@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/pages/common_widgets/quantity_widget.dart';
 
 import '../../models/item_model.dart';
 import '../../services/utils_services.dart';
 
-class FreelancerScreen extends StatelessWidget {
+class FreelancerScreen extends StatefulWidget {
   FreelancerScreen({super.key, required this.item});
 
   final ItemModel item;
+
+  @override
+  State<FreelancerScreen> createState() => _FreelancerScreenState();
+}
+
+class _FreelancerScreenState extends State<FreelancerScreen> {
   final UtilsServices utilsServices = UtilsServices();
+
+  int value = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +27,8 @@ class FreelancerScreen extends StatelessWidget {
           Column(children: [
             Expanded(
               child: Hero(
-                tag: item.imgUrl,
-                child: Image.asset(item.imgUrl),
+                tag: widget.item.imgUrl,
+                child: Image.asset(widget.item.imgUrl),
               ),
             ),
             Expanded(
@@ -39,19 +48,32 @@ class FreelancerScreen extends StatelessWidget {
                   children: [
                     //Nome
 
-                    Text(
-                      item.itemName,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontSize: 27,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            widget.item.itemName,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                              fontSize: 27,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        QuantityWidget(value: value, suffixText: widget.item.unit,
+                        result: (quantity) {
+                          setState(() {
+                            value = quantity;
+                          });
+                        },
+                        ),
+                      ],
                     ),
 
                     // Preço
                     Text(
-                      utilsServices.priceToCurrency(item.price),
+                      utilsServices.priceToCurrency(widget.item.price),
                       style: const TextStyle(
                         color: Colors.green,
                         fontSize: 20,
@@ -64,7 +86,7 @@ class FreelancerScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: SingleChildScrollView(
                           child: Text(
-                            item.description,
+                            widget.item.description,
                             style: const TextStyle(
                               height: 1.5,
                             ),
