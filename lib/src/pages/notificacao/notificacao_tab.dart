@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:greengrocer/src/config/app_data.dart' as app_data;
+import 'package:greengrocer/src/pages/notificacao/components/notificacao_tile.dart';
 
 class NotificacaoTab extends StatelessWidget {
   final notificacaoItems = app_data.notificacoes;
@@ -16,7 +17,9 @@ class NotificacaoTab extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (_, index) {
-                return Text(notificacaoItems[index].item.itemName);
+                return NotificacaoTile(
+                  notificacoes: notificacaoItems[index],
+                );
               },
               itemCount: notificacaoItems.length,
             ),
@@ -60,7 +63,12 @@ class NotificacaoTab extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {},
-                          child: const Text('Confirmar'),
+                          child: const Text(
+                            'Confirmar',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
                       ),
                       Expanded(

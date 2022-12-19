@@ -7,100 +7,57 @@ List<ItemModel> garcom = [
         'Trabalho como garçom a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/garcom.png',
     itemName: 'Garçom',
-    price: 30.0,
+    price: 40.0,
     unit: 'Hr',
+    name: 'Roberto',
   ),
   ItemModel(
     description:
         'Trabalho como garçom a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/garcom.png',
     itemName: 'Garçom',
-    price: 30.0,
+    price: 35.0,
     unit: 'Hr',
+    name: 'Leonardo',
   ),
   ItemModel(
     description:
         'Trabalho como garçom a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/garcom.png',
     itemName: 'Garçom',
-    price: 30.0,
+    price: 34.0,
     unit: 'Hr',
+    name: 'Mateus',
   ),
   ItemModel(
     description:
         'Trabalho como garçom a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/garcom.png',
     itemName: 'Garçom',
-    price: 30.0,
+    price: 32.0,
     unit: 'Hr',
+    name: 'Renato',
   ),
   ItemModel(
     description:
         'Trabalho como garçom a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/garcom.png',
     itemName: 'Garçom',
-    price: 30.0,
+    price: 33.0,
     unit: 'Hr',
+    name: 'Roberto',
   ),
 ];
 
 List<ItemModel> musico = [
   ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
-  ItemModel(
-    description:
-        'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
-    imgUrl: 'assets/jobs/musico.png',
-    itemName: 'Músico',
-    price: 30.0,
-    unit: 'Hr',
-  ),
+      description:
+          'Trabalho como Musico a mais de 10 anos em restaurantes e bares',
+      imgUrl: 'assets/jobs/musico.png',
+      itemName: 'Músico',
+      price: 30.0,
+      unit: 'Hr',
+      name: 'Banda ABC'),
 ];
 
 List<ItemModel> motoboy = [
@@ -111,6 +68,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'João',
   ),
   ItemModel(
     description:
@@ -119,6 +77,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Daniel',
   ),
   ItemModel(
     description:
@@ -127,6 +86,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Pedro',
   ),
   ItemModel(
     description:
@@ -135,6 +95,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Carlos',
   ),
   ItemModel(
     description:
@@ -143,6 +104,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Joaquim',
   ),
   ItemModel(
     description:
@@ -151,6 +113,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Elias',
   ),
   ItemModel(
     description:
@@ -159,6 +122,7 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
+    name: 'Tadeu',
   ),
 ];
 
@@ -168,8 +132,9 @@ List<ItemModel> cozinheiro = [
           'Trabalho como Cozinheiro a mais de 10 anos em restaurantes e bares',
       imgUrl: 'assets/jobs/cozinha.png',
       itemName: 'Cozinheiro(a)',
-      price: 30.0,
-      unit: 'Hr')
+      price: 69.0,
+      unit: 'Hr',
+      name: 'Roberta')
 ];
 
 List<String> categorias = [

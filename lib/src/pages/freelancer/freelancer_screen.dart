@@ -52,7 +52,7 @@ class _FreelancerScreenState extends State<FreelancerScreen> {
                       children: [
                         Expanded(
                           child: Text(
-                            widget.item.itemName,
+                            widget.item.name,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -61,12 +61,14 @@ class _FreelancerScreenState extends State<FreelancerScreen> {
                             ),
                           ),
                         ),
-                        QuantityWidget(value: value, suffixText: widget.item.unit,
-                        result: (quantity) {
-                          setState(() {
-                            value = quantity;
-                          });
-                        },
+                        QuantityWidget(
+                          value: value,
+                          suffixText: widget.item.unit,
+                          result: (quantity) {
+                            setState(() {
+                              value = quantity;
+                            });
+                          },
                         ),
                       ],
                     ),

@@ -45,7 +45,7 @@ class ItemTile extends StatelessWidget {
                   ),
                   // Nome
                   Text(
-                    item.itemName,
+                    item.name,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
