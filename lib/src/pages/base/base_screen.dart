@@ -12,9 +12,7 @@ class BaseScreen extends StatefulWidget {
 
 class _BaseScreenState extends State<BaseScreen> {
   int currentIndex = 0;
-  final pageController = PageController(
-    initialPage: 0
-  );
+  final pageController = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +22,13 @@ class _BaseScreenState extends State<BaseScreen> {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           const HomeTab(),
-          const NotificacaoTab(),
-          Container(color: Colors.green,),
-          Container(color: Colors.red,),
+          NotificacaoTab(),
+          Container(
+            color: Colors.green,
+          ),
+          Container(
+            color: Colors.red,
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -34,28 +36,19 @@ class _BaseScreenState extends State<BaseScreen> {
         currentIndex: currentIndex,
         onTap: (index) {
           setState(() {
-          currentIndex = index;
-          pageController.jumpToPage(index);
+            currentIndex = index;
+            pageController.jumpToPage(index);
           });
         },
         unselectedItemColor: Colors.blue.withAlpha(100),
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max_outlined),
-            label: 'Home'
-          ),
+              icon: Icon(Icons.home_max_outlined), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard_outlined),
-              label: 'Notificações'
-          ),
+              icon: Icon(Icons.dashboard_outlined), label: 'Notificações'),
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: 'Pedidos'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list),
-              label: 'Pedidos'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'Perfil'
-          ),
+              icon: Icon(Icons.person_outline), label: 'Perfil'),
         ],
       ),
     );

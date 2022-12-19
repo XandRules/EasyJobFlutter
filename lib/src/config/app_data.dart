@@ -1,4 +1,5 @@
 import 'package:greengrocer/src/models/item_model.dart';
+import 'package:greengrocer/src/models/notificacao_model.dart';
 
 List<ItemModel> garcom = [
   ItemModel(
@@ -110,35 +111,40 @@ List<ItemModel> motoboy = [
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
-  ), ItemModel(
+  ),
+  ItemModel(
     description:
         'Trabalho como Motoboy a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/motoboy.png',
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
-  ), ItemModel(
+  ),
+  ItemModel(
     description:
         'Trabalho como Motoboy a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/motoboy.png',
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
-  ), ItemModel(
+  ),
+  ItemModel(
     description:
         'Trabalho como Motoboy a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/motoboy.png',
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
-  ), ItemModel(
+  ),
+  ItemModel(
     description:
         'Trabalho como Motoboy a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/motoboy.png',
     itemName: 'Motoboy',
     price: 30.0,
     unit: 'Hr',
-  ), ItemModel(
+  ),
+  ItemModel(
     description:
         'Trabalho como Motoboy a mais de 10 anos em restaurantes e bares',
     imgUrl: 'assets/jobs/motoboy.png',
@@ -171,4 +177,11 @@ List<String> categorias = [
   'Cozinheiro(a)',
   'Garçom',
   'Músicos',
+];
+
+List<NotificacaoModel> notificacoes = [
+  NotificacaoModel(
+    item: garcom.first,
+    quantity: 5,
+  )
 ];
