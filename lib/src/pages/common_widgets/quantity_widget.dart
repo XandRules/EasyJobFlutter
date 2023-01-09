@@ -1,37 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:greengrocer/src/config/custom_colors.dart';
 
 class QuantityWidget extends StatelessWidget {
-
   final int value;
   final String suffixText;
   final Function(int quantity) result;
+  final bool isRemovable;
 
-   const QuantityWidget({super.key, required this.value, required this.suffixText, required this.result});
+  const QuantityWidget({
+    Key? key,
+    required this.suffixText,
+    required this.value,
+    required this.result,
+    this.isRemovable = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(50),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Colors.grey,
-            blurRadius: 2,
+            color: Colors.grey.shade300,
             spreadRadius: 1,
+            blurRadius: 2,
           ),
         ],
       ),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          _Quantity_Button(
-            color: Colors.grey,
-            icon: Icons.remove,
+          _QuantityButton(
+            icon:
+                !isRemovable || value > 1 ? Icons.remove : Icons.delete_forever,
+            color: !isRemovable || value > 1 ? Colors.grey : Colors.red,
             onPressed: () {
-              if(value == 1 ) return ;
-              int resultCount = value - 1;
+              if (value == 1 && !isRemovable) return;
 
+              int resultCount = value - 1;
               result(resultCount);
             },
           ),
@@ -45,9 +54,9 @@ class QuantityWidget extends StatelessWidget {
               ),
             ),
           ),
-          _Quantity_Button(
-            color: Colors.green,
+          _QuantityButton(
             icon: Icons.add,
+            color: CustomColors.customSwatchColor,
             onPressed: () {
               int resultCount = value + 1;
 
@@ -60,12 +69,12 @@ class QuantityWidget extends StatelessWidget {
   }
 }
 
-class _Quantity_Button extends StatelessWidget {
+class _QuantityButton extends StatelessWidget {
   final Color color;
   final IconData icon;
   final VoidCallback onPressed;
 
-  const _Quantity_Button({
+  const _QuantityButton({
     Key? key,
     required this.color,
     required this.icon,
